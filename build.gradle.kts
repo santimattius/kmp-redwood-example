@@ -4,6 +4,15 @@ plugins {
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.androidLibrary) apply false
     alias(libs.plugins.kotlinMultiplatform) apply false
+    alias(libs.plugins.kotlinJvm) apply false
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
     alias(libs.plugins.composeCompiler) apply false
+}
+
+buildscript{
+    dependencies{
+        classpath(libs.redwood.schema.gradle.plugin)
+        classpath(libs.redwood.generator.compose)
+        classpath(libs.redwood.generator.widget)
+    }
 }

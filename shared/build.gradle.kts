@@ -1,18 +1,9 @@
-
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.composeCompiler)
 }
 
 kotlin {
-    androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-            }
-        }
-    }
-    
     listOf(
         iosX64(),
         iosArm64(),
@@ -26,15 +17,11 @@ kotlin {
     
     sourceSets {
         commonMain.dependencies {
-            // put your Multiplatform dependencies here
-        }
-    }
-}
+            implementation(project.dependencies.platform(libs.redwood.bom))
+            implementation(libs.redwood.layout.uiview)
 
-android {
-    namespace = "com.santimattius.kmp.skeleton.shared"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
-    defaultConfig {
-        minSdk = libs.versions.android.minSdk.get().toInt()
+            implementation(projects.schema.widget)
+            implementation(projects.presenter)
+        }
     }
 }

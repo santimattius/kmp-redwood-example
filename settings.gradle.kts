@@ -20,3 +20,8 @@ dependencyResolutionManagement {
 
 include(":composeApp")
 include(":shared")
+include(":shared-compose")
+include(":presenter")
+include(":schema")
+include(":schema:compose")
+include(":schema:widget")

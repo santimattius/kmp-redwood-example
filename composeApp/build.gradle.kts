@@ -33,7 +33,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget =  JavaVersion.VERSION_1_8.toString()
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
     buildFeatures {
         compose = true
@@ -47,25 +47,27 @@ composeCompiler {
 
 
 dependencies {
-    implementation(projects.shared)
+    implementation(projects.presenter)
+    implementation(projects.sharedCompose)
+
+    implementation(platform(libs.redwood.bom))
+    implementation(libs.redwood.composeui)
+    implementation(libs.redwood.layout.composeui)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.material)
 
-
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
 
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.compose.foundation)
-    implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.material3)
+    implementation(libs.kotlinx.coroutines.android)
 
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.compose.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.jetbrains.compose.material)
+    implementation(libs.jetbrains.compose.material3)
+    implementation(libs.jetbrains.compose.ui)
+    implementation(libs.jetbrains.compose.ui.tooling.preview)
+
+    debugImplementation(libs.jetbrains.compose.ui.tooling)
 }
 

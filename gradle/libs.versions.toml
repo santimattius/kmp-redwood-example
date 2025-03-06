@@ -2,7 +2,6 @@
 agp = "8.8.2"
 kotlin = "2.1.10"
 
-composeCompiler = "1.5.13"
 android-compileSdk = "35"
 android-minSdk = "24"
 android-targetSdk = "35"
@@ -10,39 +9,55 @@ android-targetSdk = "35"
 androidx-appcompat = "1.7.0"
 androidx-core-ktx = "1.15.0"
 androidx-material = "1.12.0"
-
 androidx-activityCompose = "1.10.1"
 
-junit = "4.13.2"
+kotlinx-coroutines = "1.10.1"
 
 lifecycleRuntimeKtx = "2.8.7"
-composeBom = "2025.02.00"
 
+jbCompose = "1.7.3"
+redwood = "0.17.0"
 
 [libraries]
-kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
-kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
 androidx-material = { group = "com.google.android.material", name = "material", version.ref = "androidx-material" }
 
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
-androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
-androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
-androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
+
+#Compose Multiplatform
+jetbrains-compose-collection = { module = "org.jetbrains.compose.collection-internal:collection", version.ref = "jbCompose" }
+jetbrains-compose-gradlePlugin = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "jbCompose" }
+jetbrains-compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "jbCompose" }
+jetbrains-compose-material = { module = "org.jetbrains.compose.material:material", version.ref = "jbCompose" }
+jetbrains-compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "jbCompose" }
+jetbrains-compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "jbCompose" }
+jetbrains-compose-runtime-saveable = { module = "org.jetbrains.compose.runtime:runtime-saveable", version.ref = "jbCompose" }
+jetbrains-compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "jbCompose" }
+jetbrains-compose-ui-tooling = { module = "org.jetbrains.compose.ui:ui-tooling", version.ref = "jbCompose" }
+jetbrains-compose-ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "jbCompose" }
+
+#Redwood
+redwood-bom = { group = "app.cash.redwood", name = "redwood-bom", version.ref = "redwood" }
+redwood-layout-uiview = { group = "app.cash.redwood", name = "redwood-layout-uiview"}
+redwood-widget-compose = { group = "app.cash.redwood", name = "redwood-widget-compose"}
+redwood-layout-compose = { group = "app.cash.redwood", name = "redwood-layout-compose"}
+redwood-composeui = { group = "app.cash.redwood", name = "redwood-composeui"}
+redwood-layout-composeui = { group = "app.cash.redwood", name = "redwood-layout-composeui"}
+redwood-layout-widget = { group = "app.cash.redwood", name = "redwood-layout-widget"}
+redwood-layout-schema = { group = "app.cash.redwood", name = "redwood-layout-schema"}
+
+redwood-schema-gradle-plugin = { module = "app.cash.redwood.schema:app.cash.redwood.schema.gradle.plugin", version.ref = "redwood" }
+redwood-generator-compose = { module = "app.cash.redwood.generator.compose:app.cash.redwood.generator.compose.gradle.plugin", version.ref = "redwood" }
+redwood-generator-widget = { module = "app.cash.redwood.generator.widget:app.cash.redwood.generator.widget.gradle.plugin", version.ref = "redwood" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
