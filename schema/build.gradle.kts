@@ -5,7 +5,8 @@ plugins {
 
 dependencies {
     implementation(project.dependencies.platform(libs.redwood.bom))
-    api(libs.redwood.layout.schema)
+    implementation(libs.redwood.layout.schema)
+    implementation(libs.redwood.lazylayout.schema)
 }
 
 redwoodSchema {

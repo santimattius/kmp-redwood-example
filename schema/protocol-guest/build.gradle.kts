@@ -1,25 +1,18 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    id("app.cash.redwood.generator.widget")
+    id("app.cash.redwood.generator.protocol.guest")
 }
-
-base.archivesName = "schema-widget"
+base.archivesName = "schema-protocol-guest"
 
 kotlin {
-    iosArm64()
-    iosX64()
-    iosSimulatorArm64()
-
     js {
         browser()
     }
-    jvm()
 
     sourceSets {
         commonMain {
             dependencies {
-                implementation(project.dependencies.platform(libs.redwood.bom))
-                implementation(libs.redwood.layout.widget)
+                implementation(projects.schema.widget)
             }
         }
     }

@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.kotlinJvm) apply false
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
     alias(libs.plugins.composeCompiler) apply false
+    alias(libs.plugins.kotlinSerializationPlugin) apply false
 }
 
 buildscript{
@@ -14,5 +15,7 @@ buildscript{
         classpath(libs.redwood.schema.gradle.plugin)
         classpath(libs.redwood.generator.compose)
         classpath(libs.redwood.generator.widget)
+        classpath(libs.redwood.generator.modifiers)
+        classpath(libs.redwood.generator.protocol.guest)
     }
 }

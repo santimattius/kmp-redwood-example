@@ -49,10 +49,13 @@ redwood-composeui = { group = "app.cash.redwood", name = "redwood-composeui"}
 redwood-layout-composeui = { group = "app.cash.redwood", name = "redwood-layout-composeui"}
 redwood-layout-widget = { group = "app.cash.redwood", name = "redwood-layout-widget"}
 redwood-layout-schema = { group = "app.cash.redwood", name = "redwood-layout-schema"}
+redwood-lazylayout-schema = { group = "app.cash.redwood", name = "redwood-lazylayout-schema"}
 
 redwood-schema-gradle-plugin = { module = "app.cash.redwood.schema:app.cash.redwood.schema.gradle.plugin", version.ref = "redwood" }
 redwood-generator-compose = { module = "app.cash.redwood.generator.compose:app.cash.redwood.generator.compose.gradle.plugin", version.ref = "redwood" }
 redwood-generator-widget = { module = "app.cash.redwood.generator.widget:app.cash.redwood.generator.widget.gradle.plugin", version.ref = "redwood" }
+redwood-generator-modifiers = { module = "app.cash.redwood.generator.modifiers:app.cash.redwood.generator.modifiers.gradle.plugin", version.ref = "redwood" }
+redwood-generator-protocol-guest = { module = "app.cash.redwood.generator.protocol.guest:app.cash.redwood.generator.protocol.guest.gradle.plugin", version.ref = "redwood" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -61,3 +64,4 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlinSerializationPlugin = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
