@@ -47,13 +47,22 @@ composeCompiler {
 
 
 dependencies {
-    implementation(projects.presenter)
+
+    implementation(projects.launcher)
+    implementation(projects.presenterTreehouse)
+    implementation(projects.schema.protocolHost)
     implementation(projects.sharedCompose)
 
     implementation(platform(libs.redwood.bom))
-    implementation(libs.redwood.composeui)
     implementation(libs.redwood.layout.composeui)
+    implementation(libs.redwood.lazylayout.composeui)
+    implementation(libs.redwood.treehouse.host)
+    implementation(libs.redwood.treehouse.host.composeui)
+    implementation(libs.redwood.widget.compose)
 
+    implementation(libs.okio.assetfilesystem)
+
+    implementation(libs.coil.network.okhttp)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.material)

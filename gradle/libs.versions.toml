@@ -11,12 +11,16 @@ androidx-core-ktx = "1.15.0"
 androidx-material = "1.12.0"
 androidx-activityCompose = "1.10.1"
 
-kotlinx-coroutines = "1.10.1"
-
 lifecycleRuntimeKtx = "2.8.7"
+
+kotlinx-coroutines = "1.10.1"
+kotlinx-serialization = "1.8.0"
 
 jbCompose = "1.7.3"
 redwood = "0.17.0"
+zipline = "1.19.0"
+okio = "3.10.2"
+coil = "3.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
@@ -27,6 +31,16 @@ androidx-activity-compose = { module = "androidx.activity:activity-compose", ver
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
+
+kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+
+coil-compose = { module = "io.coil-kt.coil3:coil-compose-core", version.ref = "coil" }
+coil-core = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
+coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coil" }
+
+okio = { module = "com.squareup.okio:okio", version.ref = "okio" }
+okio-assetfilesystem = { module = "com.squareup.okio:okio-assetfilesystem", version.ref = "okio" }
 
 #Compose Multiplatform
 jetbrains-compose-collection = { module = "org.jetbrains.compose.collection-internal:collection", version.ref = "jbCompose" }
@@ -42,20 +56,37 @@ jetbrains-compose-ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-t
 
 #Redwood
 redwood-bom = { group = "app.cash.redwood", name = "redwood-bom", version.ref = "redwood" }
-redwood-layout-uiview = { group = "app.cash.redwood", name = "redwood-layout-uiview"}
-redwood-widget-compose = { group = "app.cash.redwood", name = "redwood-widget-compose"}
-redwood-layout-compose = { group = "app.cash.redwood", name = "redwood-layout-compose"}
-redwood-composeui = { group = "app.cash.redwood", name = "redwood-composeui"}
-redwood-layout-composeui = { group = "app.cash.redwood", name = "redwood-layout-composeui"}
-redwood-layout-widget = { group = "app.cash.redwood", name = "redwood-layout-widget"}
-redwood-layout-schema = { group = "app.cash.redwood", name = "redwood-layout-schema"}
-redwood-lazylayout-schema = { group = "app.cash.redwood", name = "redwood-lazylayout-schema"}
+redwood-layout-uiview = { group = "app.cash.redwood", name = "redwood-layout-uiview" }
+redwood-lazylayout-uiview = { group = "app.cash.redwood", name = "redwood-lazylayout-uiview" }
+redwood-widget-compose = { group = "app.cash.redwood", name = "redwood-widget-compose" }
+redwood-layout-compose = { group = "app.cash.redwood", name = "redwood-layout-compose" }
+redwood-lazylayout-compose = { group = "app.cash.redwood", name = "redwood-lazylayout-compose" }
+redwood-lazylayout-composeui = { group = "app.cash.redwood", name = "redwood-lazylayout-composeui" }
+redwood-composeui = { group = "app.cash.redwood", name = "redwood-composeui" }
+redwood-layout-composeui = { group = "app.cash.redwood", name = "redwood-layout-composeui" }
+redwood-layout-widget = { group = "app.cash.redwood", name = "redwood-layout-widget" }
+redwood-lazylayout-widget = { group = "app.cash.redwood", name = "redwood-lazylayout-widget" }
+redwood-layout-schema = { group = "app.cash.redwood", name = "redwood-layout-schema" }
+redwood-lazylayout-schema = { group = "app.cash.redwood", name = "redwood-lazylayout-schema" }
+redwood-treehouse = { group = "app.cash.redwood", name = "redwood-treehouse" }
+redwood-treehouse-guest = { group = "app.cash.redwood", name = "redwood-treehouse-guest" }
+redwood-treehouse-guest-compose = { group = "app.cash.redwood", name = "redwood-treehouse-guest-compose" }
+redwood-treehouse-host = { group = "app.cash.redwood", name = "redwood-treehouse-host" }
+redwood-treehouse-host-composeui = { group = "app.cash.redwood", name = "redwood-treehouse-host-composeui" }
+redwood-widget = { group = "app.cash.redwood", name = "redwood-widget" }
 
+zipline-loader = { module = "app.cash.zipline:zipline-loader", version.ref = "zipline" }
+
+#Plugins
+redwood-gradle-plugin = { module = "app.cash.redwood:redwood-gradle-plugin", version.ref = "redwood" }
 redwood-schema-gradle-plugin = { module = "app.cash.redwood.schema:app.cash.redwood.schema.gradle.plugin", version.ref = "redwood" }
 redwood-generator-compose = { module = "app.cash.redwood.generator.compose:app.cash.redwood.generator.compose.gradle.plugin", version.ref = "redwood" }
 redwood-generator-widget = { module = "app.cash.redwood.generator.widget:app.cash.redwood.generator.widget.gradle.plugin", version.ref = "redwood" }
 redwood-generator-modifiers = { module = "app.cash.redwood.generator.modifiers:app.cash.redwood.generator.modifiers.gradle.plugin", version.ref = "redwood" }
 redwood-generator-protocol-guest = { module = "app.cash.redwood.generator.protocol.guest:app.cash.redwood.generator.protocol.guest.gradle.plugin", version.ref = "redwood" }
+redwood-generator-protocol-host = { module = "app.cash.redwood.generator.protocol.host:app.cash.redwood.generator.protocol.host.gradle.plugin", version.ref = "redwood" }
+
+zipline-plugin = { module = "app.cash.zipline:app.cash.zipline.gradle.plugin", version.ref = "zipline" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

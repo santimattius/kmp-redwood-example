@@ -19,12 +19,13 @@ kotlin {
         commonMain.dependencies {
             implementation(project.dependencies.platform(libs.redwood.bom))
             api(libs.redwood.layout.compose)
-            implementation(projects.schema.widget)
+            api(libs.redwood.lazylayout.compose)
+            api(projects.schema.widget)
         }
     }
 }
 
 redwoodSchema {
     source = projects.schema
-    type = "com.santimattius.kmp.redwood.example.Schema"
+    type = "com.santimattius.kmp.redwood.example.DragonBall"
 }

@@ -7,8 +7,9 @@ dependencies {
     implementation(project.dependencies.platform(libs.redwood.bom))
     implementation(libs.redwood.layout.schema)
     implementation(libs.redwood.lazylayout.schema)
+    implementation(projects.values)
 }
 
 redwoodSchema {
-    type = "com.santimattius.kmp.redwood.example.Schema"
+    type = "com.santimattius.kmp.redwood.example.DragonBall"
 }

@@ -19,9 +19,11 @@ kotlin {
         commonMain.dependencies {
             implementation(project.dependencies.platform(libs.redwood.bom))
             implementation(libs.redwood.layout.uiview)
+            implementation(libs.redwood.lazylayout.uiview)
 
-            implementation(projects.schema.widget)
-            implementation(projects.presenter)
+            implementation(projects.launcher)
+            implementation(projects.presenterTreehouse)
+            implementation(projects.schema.protocolHost)
         }
     }
 }

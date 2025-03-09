@@ -12,10 +12,13 @@ plugins {
 
 buildscript{
     dependencies{
+        classpath(libs.redwood.gradle.plugin)
         classpath(libs.redwood.schema.gradle.plugin)
         classpath(libs.redwood.generator.compose)
         classpath(libs.redwood.generator.widget)
         classpath(libs.redwood.generator.modifiers)
         classpath(libs.redwood.generator.protocol.guest)
+        classpath(libs.redwood.generator.protocol.host)
+        classpath(libs.zipline.plugin)
     }
 }

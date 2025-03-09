@@ -6,6 +6,7 @@ plugins {
 dependencies {
 
     api(projects.schema.widget)
+
     implementation(project.dependencies.platform(libs.redwood.bom))
     implementation(libs.redwood.widget.compose)
     implementation(libs.redwood.composeui)
@@ -13,4 +14,5 @@ dependencies {
     implementation(libs.jetbrains.compose.material)
     implementation(libs.jetbrains.compose.ui)
     implementation(libs.jetbrains.compose.ui.tooling.preview)
+    api(libs.coil.compose)
 }

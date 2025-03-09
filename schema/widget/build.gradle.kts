@@ -20,6 +20,10 @@ kotlin {
             dependencies {
                 implementation(project.dependencies.platform(libs.redwood.bom))
                 implementation(libs.redwood.layout.widget)
+                implementation(libs.redwood.lazylayout.widget)
+
+                api(projects.schema.modifiers)
+                api(projects.values)
             }
         }
     }
@@ -27,5 +31,5 @@ kotlin {
 
 redwoodSchema {
     source = projects.schema
-    type = "com.santimattius.kmp.redwood.example.Schema"
+    type = "com.santimattius.kmp.redwood.example.DragonBall"
 }
