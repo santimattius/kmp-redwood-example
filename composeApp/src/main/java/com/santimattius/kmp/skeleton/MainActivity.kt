@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.material3.SnackbarDuration
@@ -68,7 +67,6 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
 
         val client = OkHttpClient()
         val treehouseApp = createTreehouseApp(client)
@@ -117,7 +115,6 @@ class MainActivity : ComponentActivity() {
         override fun codeLoadFailed(exception: Exception, startValue: Any?) {
             Log.w("Treehouse", "codeLoadFailed", exception)
             if (success) {
-                // Only show the Snackbar on the first transition from success.
                 success = false
                 snackbarJob = scope.launch {
                     hostState.showSnackbar(

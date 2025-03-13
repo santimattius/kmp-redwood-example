@@ -10,10 +10,11 @@ kotlin {
     }
 
     sourceSets {
-        commonMain {
-            dependencies {
-                implementation(projects.schema.widget)
-            }
+        commonMain.dependencies {
+            api(project.dependencies.platform(libs.redwood.bom))
+            api(libs.redwood.layout.widget)
+            api(libs.redwood.lazylayout.widget)
+            api(projects.schema.widget)
         }
     }
 }

@@ -13,7 +13,8 @@ class AppSpec(
     override val manifestUrl: Flow<String>,
     private val hostApi: HostApi,
 ) : TreehouseApp.Spec<SearchPresenter>() {
-    override val name get() = "emoji-search"
+
+    override val name get() = "search"
 
     override val serializersModule get() = SerializersModule
 

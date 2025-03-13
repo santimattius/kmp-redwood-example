@@ -20,6 +20,7 @@ kotlin {
             implementation(project.dependencies.platform(libs.redwood.bom))
             api(libs.redwood.layout.compose)
             api(libs.redwood.lazylayout.compose)
+
             api(projects.schema.widget)
         }
     }

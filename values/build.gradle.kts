@@ -14,14 +14,12 @@ kotlin {
     jvm()
 
     sourceSets {
-        commonMain {
-            dependencies {
-                implementation(libs.jetbrains.compose.runtime)
-                implementation(libs.kotlinx.serialization.core)
-                implementation(project.dependencies.platform(libs.redwood.bom))
-                implementation(libs.redwood.treehouse)
-                implementation(libs.redwood.widget)
-            }
+        commonMain.dependencies {
+            implementation(libs.jetbrains.compose.runtime)
+            implementation(libs.kotlinx.serialization.core)
+            implementation(project.dependencies.platform(libs.redwood.bom))
+            implementation(libs.redwood.treehouse)
+            implementation(libs.redwood.widget)
         }
     }
 }

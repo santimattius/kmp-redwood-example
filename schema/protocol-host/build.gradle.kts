@@ -11,14 +11,12 @@ kotlin {
 
     jvm()
 
-
     sourceSets {
-        commonMain {
-            dependencies {
-                implementation(project.dependencies.platform(libs.redwood.bom))
-                implementation(libs.redwood.layout.widget)
-                implementation(projects.schema.widget)
-            }
+        commonMain.dependencies {
+            api(project.dependencies.platform(libs.redwood.bom))
+            api(libs.redwood.layout.widget)
+
+            api(projects.schema.widget)
         }
     }
 }

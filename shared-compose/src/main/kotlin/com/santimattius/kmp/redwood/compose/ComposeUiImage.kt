@@ -1,12 +1,17 @@
 package com.santimattius.kmp.redwood.compose
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil3.ImageLoader
 import coil3.compose.AsyncImage
@@ -27,8 +32,10 @@ internal class ComposeUiImage(
             model = url,
             imageLoader = imageLoader,
             contentDescription = null,
+            contentScale = ContentScale.Fit,
             modifier = Modifier
-                .size(48.dp)
+                .background(Color.White)
+                .size(64.dp)
                 .clickable(onClick = onClick),
         )
     }

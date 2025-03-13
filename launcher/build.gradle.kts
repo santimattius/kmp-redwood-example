@@ -25,4 +25,9 @@ kotlin {
 
 android {
     namespace = "com.santimattius.kmp.redwood.launcher"
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
 }

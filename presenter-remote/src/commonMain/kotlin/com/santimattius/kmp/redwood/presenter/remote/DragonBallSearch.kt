@@ -34,10 +34,13 @@ import com.santimattius.kmp.redwood.example.compose.reuse
 import com.santimattius.kmp.redwood.values.TextFieldState
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
+import kotlin.random.Random
 
 data class CharacterImage(
-    val label: String,
+    val id: Long,
+    val name: String,
     val url: String,
+    val description: String = ""
 )
 
 // TODO Switch to https://github.com/cashapp/zipline/issues/490 once available.
@@ -60,7 +63,7 @@ fun DragonBallSearch(
     viewInsets: Margin = LocalUiConfiguration.current.safeAreaInsets,
 ) {
     val scope = rememberCoroutineScope()
-    val allEmojis = remember { mutableStateListOf<CharacterImage>() }
+    val characters = remember { mutableStateListOf<CharacterImage>() }
 
     // Simple counter that allows us to trigger refreshes by simple incrementing the value
     var refreshSignal by remember { mutableIntStateOf(0) }
@@ -87,31 +90,39 @@ fun DragonBallSearch(
 
     LaunchedEffect(refreshSignal) {
         try {
-            refreshing = true
-            val emojisJson = httpClient.call(
-                url = "https://api.github.com/emojis",
-                headers = mapOf("Accept" to "application/vnd.github.v3+json"),
+            //refreshing = true
+            val jsonResponse = httpClient.call(
+                url = "https://dragonball-api.com/api/characters",
+                headers = emptyMap(),
             )
-            val labelToUrl = Json.decodeFromString<Map<String, String>>(emojisJson)
+            val json = Json {
+                allowStructuredMapKeys = true
+                ignoreUnknownKeys = true
+            }
+            val response = json.decodeFromString(
+                CharacterResponse.serializer(),
+                jsonResponse
+            )
 
-            allEmojis.clear()
-            var index = 0
-            allEmojis.addAll(labelToUrl.map { (key, value) ->
+            characters.clear()
+            characters.addAll(response.items.map { item ->
                 CharacterImage(
-                    "${index++}. $key",
-                    value
+                    item.id,
+                    item.name,
+                    item.image,
+                    description = item.race
                 )
             })
         } finally {
-            refreshing = false
+            //refreshing = false
         }
     }
 
     val filteredEmojis by remember {
         derivedStateOf {
             val searchTerms = searchTerm.text.split(" ")
-            allEmojis.filter { image ->
-                searchTerms.all { image.label.contains(it, ignoreCase = true) }
+            characters.filter { image ->
+                searchTerms.all { image.name.contains(it, ignoreCase = true) }
             }
         }
     }
@@ -141,6 +152,7 @@ fun DragonBallSearch(
                 searchTerm = textFieldState
             },
         )
+
         LazyColumn(
             refreshing = refreshing,
             onRefresh = { refreshSignal++ },
@@ -187,14 +199,16 @@ fun Item(
             url = characterImage.url,
             modifier = Modifier
                 .margin(Margin(8.dp))
-                .size(24.dp, 24.dp),
+                .size(64.dp, 64.dp),
             onClick = onClick,
         )
-        Text(text = characterImage.label)
+
+        Text(text = characterImage.name.uppercase())
     }
 }
 
 val loadingCharacterImage = CharacterImage(
-    label = "loading…",
-    url = "https://github.githubassets.com/images/icons/emoji/unicode/231a.png?v8",
+    id = Random.nextLong(),
+    name = "loading…",
+    url = "",
 )

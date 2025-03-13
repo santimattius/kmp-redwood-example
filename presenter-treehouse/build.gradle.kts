@@ -35,8 +35,8 @@ kotlin {
                 implementation(project.dependencies.platform(libs.redwood.bom))
                 implementation(libs.redwood.treehouse.guest)
 
-                implementation(projects.presenterRemote)
-                implementation(projects.schema.protocolGuest)
+                api(projects.presenterRemote)
+                api(projects.schema.protocolGuest)
             }
         }
     }

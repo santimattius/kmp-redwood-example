@@ -16,15 +16,13 @@ kotlin {
     jvm()
 
     sourceSets {
-        commonMain {
-            dependencies {
-                implementation(project.dependencies.platform(libs.redwood.bom))
-                implementation(libs.redwood.layout.widget)
-                implementation(libs.redwood.lazylayout.widget)
+        commonMain.dependencies {
+            api(project.dependencies.platform(libs.redwood.bom))
+            api(libs.redwood.layout.widget)
+            api(libs.redwood.lazylayout.widget)
 
-                api(projects.schema.modifiers)
-                api(projects.values)
-            }
+            api(projects.schema.modifiers)
+            api(projects.values)
         }
     }
 }
