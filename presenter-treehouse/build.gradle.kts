@@ -2,10 +2,6 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     id("app.cash.zipline")
 }
-//TODO: review
-//redwoodBuild {
-//    ziplineApplication('emoji-search')
-//}
 
 kotlin {
     iosArm64()
