@@ -16,16 +16,18 @@ kotlin {
     jvm()
 
     sourceSets {
-        commonMain {
-            dependencies {
-                implementation(project.dependencies.platform(libs.redwood.bom))
-                api(libs.redwood.layout.widget)
-            }
+        commonMain.dependencies {
+            api(project.dependencies.platform(libs.redwood.bom))
+            api(libs.redwood.layout.widget)
+            api(libs.redwood.lazylayout.widget)
+
+            api(projects.schema.modifiers)
+            api(projects.values)
         }
     }
 }
 
 redwoodSchema {
     source = projects.schema
-    type = "com.santimattius.kmp.redwood.example.Schema"
+    type = "com.santimattius.kmp.redwood.example.DragonBall"
 }

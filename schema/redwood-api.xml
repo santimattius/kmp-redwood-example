@@ -1,10 +1,17 @@
-<schema version="1" type="com.santimattius.kmp.redwood.example.Schema">
+<schema type="com.santimattius.kmp.redwood.example.DragonBall" version="1">
+    <widget tag="1" type="com.santimattius.kmp.redwood.example.TextInput">
+        <property name="state" tag="1"
+            type="com.santimattius.kmp.redwood.values.TextFieldState" />
+        <property name="hint" tag="2" type="kotlin.String" />
+        <event name="onChange" nullable="true"
+            params="com.santimattius.kmp.redwood.values.TextFieldState" tag="3" />
+    </widget>
     <widget tag="2" type="com.santimattius.kmp.redwood.example.Text">
-        <property tag="1" name="text" type="kotlin.String?"/>
+        <property name="text" tag="1" type="kotlin.String" />
     </widget>
-    <widget tag="3" type="com.santimattius.kmp.redwood.example.Button">
-        <property tag="1" name="text" type="kotlin.String?"/>
-        <property tag="2" name="enabled" type="kotlin.Boolean"/>
-        <event tag="3" name="onClick" nullable="true"/>
+    <widget tag="3" type="com.santimattius.kmp.redwood.example.Image">
+        <property name="url" tag="1" type="kotlin.String" />
+        <event name="onClick" nullable="true" tag="2" />
     </widget>
+    <modifier tag="-4543827" type="com.santimattius.kmp.redwood.example.Reuse" />
 </schema>

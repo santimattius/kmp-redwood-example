@@ -29,11 +29,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        jvmTarget = JavaVersion.VERSION_21.toString()
     }
     buildFeatures {
         compose = true
@@ -47,13 +47,22 @@ composeCompiler {
 
 
 dependencies {
-    implementation(projects.presenter)
-    implementation(projects.sharedCompose)
+
+    api(projects.launcher)
+    api(projects.presenterTreehouse)
+    api(projects.schema.protocolHost)
+    api(projects.sharedCompose)
 
     implementation(platform(libs.redwood.bom))
-    implementation(libs.redwood.composeui)
     implementation(libs.redwood.layout.composeui)
+    implementation(libs.redwood.lazylayout.composeui)
+    implementation(libs.redwood.treehouse.host)
+    implementation(libs.redwood.treehouse.host.composeui)
+    implementation(libs.redwood.widget.compose)
 
+    implementation(libs.okio.assetfilesystem)
+
+    implementation(libs.coil.network.okhttp)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.material)

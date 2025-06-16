@@ -5,9 +5,11 @@ plugins {
 
 dependencies {
     implementation(project.dependencies.platform(libs.redwood.bom))
-    api(libs.redwood.layout.schema)
+    implementation(libs.redwood.layout.schema)
+    implementation(libs.redwood.lazylayout.schema)
+    api(projects.values)
 }
 
 redwoodSchema {
-    type = "com.santimattius.kmp.redwood.example.Schema"
+    type = "com.santimattius.kmp.redwood.example.DragonBall"
 }
